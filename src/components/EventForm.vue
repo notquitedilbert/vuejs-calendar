@@ -25,13 +25,14 @@ export default {
     },
     create() {
       if (this.description.length > 0) {
-        this.$store.commit("addEvent", this.description);
-        this.description = "";
-        this.$store.commit("eventFormActive", false);
+        this.$store.dispatch("addEvent", this.description).then(() => {
+          this.description = "";
+          this.$store.commit("eventFormActive", false);
+        });
       }
     }
   },
-    computed: {
+  computed: {
     active() {
       return this.$store.state.eventFormActive;
     },
@@ -41,16 +42,16 @@ export default {
     left() {
       return this.$store.state.eventFormPosX + "px";
     },
-    date(){
-        return this.$store.state.eventFormDate
+    date() {
+      return this.$store.state.eventFormDate;
     }
   },
-    directives:{
-        focus:{
-            update(el){
-                el.focus()
-            }
-        }
+  directives: {
+    focus: {
+      update(el) {
+        el.focus();
+      }
     }
+  }
 };
 </script>
