@@ -1,7 +1,9 @@
 <template>
 <div>
   <div id="header">
-   <div><h1>Vue Calendar</h1></div>
+   <div>
+     <img src="../assets/logo.png" alt="logo" >
+     <h1>Vue Calendar</h1></div>
     <div><current-month></current-month></div></div>
   <div id="day-bar">
     <div>Mon</div>
